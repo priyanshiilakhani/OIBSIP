@@ -1,0 +1,203 @@
+/* ===================================================
+   Temperature Converter - Clean Centered Stylesheet
+   =================================================== */
+
+/* Universal Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Centered Page Layout */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: #334e68;
+}
+
+/* Centered Converter Card */
+.converter-card {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 440px;
+    padding: 32px 28px;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(16, 42, 67, 0.08);
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.app-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #102a43;
+    letter-spacing: -0.3px;
+}
+
+/* Form Controls */
+.converter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+label {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #243b53;
+}
+
+/* Input and Select Controls */
+input[type="number"],
+select {
+    width: 100%;
+    padding: 11px 13px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    border: 1.5px solid #d9e2ec;
+    border-radius: 8px;
+    background-color: #f8fafc;
+    color: #102a43;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input[type="number"]:focus,
+select:focus {
+    border-color: #2563eb;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* Convert Button */
+.convert-btn {
+    margin-top: 6px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: inherit;
+    color: #ffffff;
+    background-color: #2563eb;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+    transition: background-color 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+
+.convert-btn:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.3);
+}
+
+.convert-btn:active {
+    transform: translateY(0);
+}
+
+/* Error Message Display */
+.error-message {
+    display: none;
+    margin-top: 16px;
+    padding: 11px 14px;
+    background-color: #fef2f2;
+    border: 1px solid #fecaca;
+    color: #b91c1c;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+.error-message.show {
+    display: block;
+}
+
+/* Result Section (Hidden until conversion) */
+.result-section {
+    display: none;
+    margin-top: 20px;
+    padding-top: 18px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.result-section.show {
+    display: block;
+}
+
+.result-heading {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #102a43;
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+/* Results Grid */
+.results-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.result-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 11px 14px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    background-color: #f8fafc;
+}
+
+.unit-name {
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: #486581;
+}
+
+.unit-value {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: #102a43;
+}
+
+/* Unit Accent Borders */
+.celsius-card {
+    border-left: 4px solid #0284c7;
+}
+
+.fahrenheit-card {
+    border-left: 4px solid #ea580c;
+}
+
+.kelvin-card {
+    border-left: 4px solid #7c3aed;
+}
+
+/* Responsive Queries */
+@media (max-width: 480px) {
+    .converter-card {
+        padding: 24px 18px;
+    }
+
+    .app-title {
+        font-size: 1.4rem;
+    }
+}

@@ -1,0 +1,797 @@
+:root {
+  /* Purple Palette */
+  --primary-purple: #6355E6;     /* Main brand purple */
+  --hover-purple: #4F3FD6;       /* Slightly deeper purple for hover states */
+  --light-purple: #F0EEFD;       /* Soft purple tint for badges and highlights */
+  --dark-purple: #1E1B4B;        /* Deep purple/slate for headings */
+
+  /* Neutral Palette */
+  --bg-light: #F8F9FC;           /* Clean light grey background */
+  --white: #FFFFFF;              /* Pure white for cards */
+  --text-dark: #1F2937;          /* High-contrast readable body text */
+  --text-muted: #64748B;         /* Softer grey for subtitles and descriptions */
+  --border-color: #E2E8F0;       /* Light border for crisp separation */
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 6px 18px rgba(99, 85, 230, 0.08);
+}
+
+/* --------------------------------------------------------------------------
+   2. GLOBAL RESET & BASE STYLES
+   -------------------------------------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Common container for responsive layout */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* --------------------------------------------------------------------------
+   3. REUSABLE BUTTONS & BADGES
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-block;
+  padding: 11px 26px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-primary {
+  background-color: var(--primary-purple);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background-color: var(--hover-purple);
+}
+
+.btn-secondary {
+  background-color: var(--light-purple);
+  color: var(--primary-purple);
+  border-color: #D8D2FB;
+}
+
+.btn-secondary:hover {
+  background-color: #E2DEFB;
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--primary-purple);
+  border: 1.5px solid var(--primary-purple);
+  padding: 9px 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.btn-outline:hover {
+  background-color: var(--primary-purple);
+  color: var(--white);
+}
+
+.badge, .section-tag {
+  display: inline-block;
+  background-color: var(--light-purple);
+  color: var(--primary-purple);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 14px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-header h2 {
+  font-size: 30px;
+  color: var(--dark-purple);
+  margin-bottom: 8px;
+}
+
+.section-header p {
+  color: var(--text-muted);
+  font-size: 15px;
+}
+
+/* --------------------------------------------------------------------------
+   4. NAVIGATION BAR (Sticky at Top)
+   -------------------------------------------------------------------------- */
+.header {
+  position: sticky;
+  top: 0;
+  background-color: var(--white);
+  border-bottom: 1px solid var(--border-color);
+  z-index: 1000;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--dark-purple);
+}
+
+.logo span {
+  color: var(--primary-purple);
+}
+
+.nav-links {
+  display: flex;
+  gap: 22px;
+}
+
+.nav-links a {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-muted);
+  padding-bottom: 4px;
+}
+
+.nav-links a:hover {
+  color: var(--primary-purple);
+  border-bottom: 2px solid var(--primary-purple);
+}
+
+/* --------------------------------------------------------------------------
+   5. HERO SECTION
+   -------------------------------------------------------------------------- */
+.hero-section {
+  padding: 70px 0;
+  background-color: var(--white);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.hero-text {
+  flex: 1.2;
+}
+
+.hero-text h1 {
+  font-size: 40px;
+  line-height: 1.2;
+  color: var(--dark-purple);
+  margin-bottom: 6px;
+}
+
+.hero-text h1 .highlight {
+  color: var(--primary-purple);
+}
+
+.hero-role {
+  font-size: 20px;
+  color: var(--primary-purple);
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.hero-desc {
+  font-size: 15px;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+  line-height: 1.7;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 24px;
+}
+
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Avatar Placeholder */
+.hero-avatar-wrapper {
+  flex: 0.8;
+  display: flex;
+  justify-content: center;
+}
+
+.avatar-placeholder {
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--light-purple), #E2DCFA);
+  border: 4px solid var(--white);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.avatar-initials {
+  font-size: 64px;
+  font-weight: 700;
+  color: var(--primary-purple);
+  line-height: 1;
+}
+
+.avatar-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-top: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* --------------------------------------------------------------------------
+   6. ABOUT ME SECTION
+   -------------------------------------------------------------------------- */
+.about-section {
+  padding: 60px 0;
+}
+
+.about-card {
+  background-color: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 35px;
+  box-shadow: var(--shadow-sm);
+}
+
+.about-text {
+  font-size: 15px;
+  color: var(--text-dark);
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+.about-details-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  border-top: 1px solid var(--border-color);
+  padding-top: 24px;
+}
+
+.detail-item {
+  background-color: var(--bg-light);
+  padding: 14px 18px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+.detail-label {
+  display: block;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.detail-item strong {
+  font-size: 14px;
+  color: var(--dark-purple);
+}
+
+/* --------------------------------------------------------------------------
+   7. WORK EXPERIENCE SECTION
+   -------------------------------------------------------------------------- */
+.experience-section {
+  padding: 60px 0;
+  background-color: var(--white);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.experience-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.experience-card {
+  background-color: var(--bg-light);
+  border: 1px solid var(--border-color);
+  border-left: 4px solid var(--primary-purple);
+  border-radius: 10px;
+  padding: 26px 30px;
+}
+
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.experience-header h3 {
+  font-size: 18px;
+  color: var(--dark-purple);
+}
+
+.company-name {
+  font-size: 14px;
+  color: var(--primary-purple);
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+.duration-badge {
+  background-color: var(--white);
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.experience-bullets {
+  padding-left: 20px;
+}
+
+.experience-bullets li {
+  list-style: disc;
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+.experience-bullets li:last-child {
+  margin-bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
+   8. TECHNICAL SKILLS SECTION
+   -------------------------------------------------------------------------- */
+.skills-section {
+  padding: 60px 0;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.skill-category-card {
+  background-color: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+}
+
+.category-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 12px;
+}
+
+.category-icon {
+  font-size: 20px;
+}
+
+.category-title h3 {
+  font-size: 16px;
+  color: var(--dark-purple);
+}
+
+.badges-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-badge {
+  background-color: var(--light-purple);
+  color: var(--primary-purple);
+  border: 1px solid #DED8FB;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 6px;
+}
+
+/* --------------------------------------------------------------------------
+   9. EDUCATION SECTION
+   -------------------------------------------------------------------------- */
+.education-section {
+  padding: 60px 0;
+  background-color: var(--white);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.education-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.education-card {
+  background-color: var(--bg-light);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 28px;
+  position: relative;
+}
+
+.education-badge {
+  display: inline-block;
+  background-color: var(--light-purple);
+  color: var(--primary-purple);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+
+.education-card h3 {
+  font-size: 17px;
+  color: var(--dark-purple);
+  margin-bottom: 6px;
+}
+
+.college-name {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.education-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--text-dark);
+  border-top: 1px solid var(--border-color);
+  padding-top: 14px;
+}
+
+.edu-score strong {
+  color: var(--primary-purple);
+}
+
+/* --------------------------------------------------------------------------
+   10. PROJECTS SECTION
+   -------------------------------------------------------------------------- */
+.projects-section {
+  padding: 60px 0;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.project-card {
+  background-color: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--shadow-sm);
+}
+
+.project-tag {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--primary-purple);
+  display: block;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+.project-card h3 {
+  font-size: 19px;
+  color: var(--dark-purple);
+  margin-bottom: 10px;
+}
+
+.project-description {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+.project-tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.tech-badge {
+  background-color: var(--bg-light);
+  border: 1px solid var(--border-color);
+  color: var(--text-dark);
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.project-footer {
+  border-top: 1px solid var(--border-color);
+  padding-top: 16px;
+}
+
+/* --------------------------------------------------------------------------
+   11. CERTIFICATION SECTION
+   -------------------------------------------------------------------------- */
+.certifications-section {
+  padding: 60px 0;
+  background-color: var(--white);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.cert-card-wrapper {
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.cert-card {
+  background-color: var(--bg-light);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 24px 28px;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.cert-icon {
+  font-size: 38px;
+  color: var(--primary-purple);
+  background-color: var(--white);
+  width: 65px;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  flex-shrink: 0;
+}
+
+.cert-info h3 {
+  font-size: 17px;
+  color: var(--dark-purple);
+  margin-bottom: 6px;
+}
+
+.cert-info p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   12. CONTACT SECTION
+   -------------------------------------------------------------------------- */
+.contact-section {
+  padding: 60px 0;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.contact-card {
+  background-color: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 24px 20px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  display: block;
+}
+
+.contact-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--primary-purple);
+}
+
+.contact-icon {
+  font-size: 26px;
+  color: var(--primary-purple);
+  margin-bottom: 10px;
+}
+
+.contact-card h4 {
+  font-size: 15px;
+  color: var(--dark-purple);
+  margin-bottom: 4px;
+}
+
+.contact-card p {
+  font-size: 13px;
+  color: var(--text-muted);
+  word-break: break-all;
+}
+
+/* --------------------------------------------------------------------------
+   13. FOOTER
+   -------------------------------------------------------------------------- */
+.footer {
+  background-color: var(--white);
+  border-top: 1px solid var(--border-color);
+  padding: 24px 0;
+}
+
+.footer-content {
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.footer-subtext {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #94A3B8;
+}
+
+/* --------------------------------------------------------------------------
+   14. RESPONSIVE DESIGN (Media Queries)
+   -------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .about-details-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  /* Navbar */
+  .navbar {
+    flex-direction: column;
+    gap: 14px;
+    text-align: center;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+  }
+
+  /* Hero */
+  .hero-container {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .hero-text h1 {
+    font-size: 32px;
+  }
+
+  .hero-cta {
+    justify-content: center;
+  }
+
+  .hero-meta {
+    justify-content: center;
+  }
+
+  .avatar-placeholder {
+    width: 180px;
+    height: 180px;
+  }
+
+  .avatar-initials {
+    font-size: 48px;
+  }
+
+  /* Grids to single column */
+  .skills-grid,
+  .education-grid,
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .experience-header {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .cert-card {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-text h1 {
+    font-size: 26px;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-cta .btn {
+    width: 100%;
+  }
+
+  .about-details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
